@@ -1,0 +1,27 @@
+<form [formGroup]="todoAddUpdateForm">
+  <mat-card class="add-update-card">
+    <mat-card-header>
+      <mat-form-field appearance="outline">
+        <mat-label>Input text</mat-label>
+        <input matInput formControlName="title">
+        @if (todoAddUpdateForm.get('title')?.invalid) { <mat-error>Title is required.</mat-error> }
+      </mat-form-field>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-checkbox formControlName="completed">Completed</mat-checkbox>
+      <mat-divider></mat-divider>
+    </mat-card-content>
+    <mat-card-actions>
+      @if (todo) {
+        <button mat-flat-button color="warn" [mat-dialog-close]="false">Cancel</button>
+        <button style="margin-left: auto;" mat-flat-button (click)="onUpdateTodo(todo.id)" color="primary">Update</button>
+      }
+      @else {
+        <button style="margin-left: auto;" (click)="onCreateTodo()"mat-flat-button color="primary">Add</button>
+      }
+    </mat-card-actions>
+    <mat-card-footer>
+      <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+    </mat-card-footer>
+  </mat-card>
+</form>

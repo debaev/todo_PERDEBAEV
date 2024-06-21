@@ -1,0 +1,27 @@
+@if (!todoStore.loading()) {
+  <button mat-flat-button
+          color="primary"
+          style="display: block; margin: 20px 20px 20px auto;"
+          (click)="addTodo()">
+    <mat-icon>add</mat-icon>Add
+  </button>
+  <mat-tab-group>
+    <mat-tab label="All {{ todoStore.all().length}} ">
+      <app-todo-list [todos]="todoStore.all()"></app-todo-list>
+    </mat-tab>
+  
+    <mat-tab label="Completed {{ todoStore.completed().length }}">
+      <app-todo-list [todos]="todoStore.completed()"></app-todo-list>
+    </mat-tab>
+  
+    <mat-tab label="Uncompleted {{ todoStore.uncompleted().length }}">
+      <app-todo-list [todos]="todoStore.uncompleted()"></app-todo-list>
+    </mat-tab>
+  </mat-tab-group>
+  }
+  @else {
+  <div class="spinner-wrapper">
+    <mat-spinner></mat-spinner>
+  </div>
+  }
+  

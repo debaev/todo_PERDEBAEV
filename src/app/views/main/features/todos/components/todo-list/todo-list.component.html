@@ -1,0 +1,34 @@
+@for (todo of todos; track $index) {
+<mat-list-item>
+  <div style="display: flex; padding: 10px; justify-content: space-between; align-items: center;">
+    <div [ngStyle]="{'text-decoration': todo.completed ? 'line-through' : 'none'}" matListItemTitle>{{todo.title}}</div>
+    <div [ngStyle]="{'text-decoration': todo.completed ? 'line-through' : 'none'}" matListItemLine>{{todo.updated_at | date:'dd.MM.YYYY H:mm:ss'}}</div>
+    <div>
+      <button title="Update"
+              [routerLink]="todo.id"
+              mat-mini-fab
+              color="accent"
+              aria-label="Example icon button with a menu icon">
+        <mat-icon style="color: white;">info</mat-icon>
+      </button>
+      <button title="Update"
+              (click)="onEditTodo(todo)"
+              style="margin-left: 15px;"
+              mat-mini-fab
+              color="primary"
+              aria-label="Example icon button with a menu icon">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button title="Delete"
+              (click)="onDeleteTodo(todo.id)"
+              style="margin-left: 15px;"
+              mat-mini-fab
+              color="warn"
+              aria-label="Example icon button with a filter list icon">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+</mat-list-item>
+}

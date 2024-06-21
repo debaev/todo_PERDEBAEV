@@ -1,0 +1,53 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px;
+}
+
+.login-form {
+  max-width: 585px;
+  padding: 75px 150px;
+
+  & .mat-mdc-card-subtitle {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #333E48;
+    margin-bottom: 5px;
+  }
+
+  & .login-title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    text-transform: capitalize;
+    color: #333E48;
+    margin-bottom: 36px;
+  }
+
+  & .mat-mdc-form-field {
+    margin-bottom: 7px;
+  }
+
+  & .login-btn {
+    height: 50px;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+
+  & ::ng-deep .mat-mdc-form-field-error-wrapper {
+    padding: 0 !important;
+  }
+}
+
+.spinner-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,44 @@
+@if (!userStore.loading()) {
+<h3 class="login-title">Login</h3>
+
+<form [formGroup]="loginForm"
+      (ngSubmit)="onLogin()">
+  <mat-card class="login-form">
+    <mat-card-subtitle>Email</mat-card-subtitle>
+    <mat-form-field appearance="outline">
+      <mat-label>Input text</mat-label>
+      <input matInput
+             formControlName="email">
+      @if (loginForm.get('email')?.invalid) {<mat-error>Email is required.</mat-error>}
+    </mat-form-field>
+
+    <mat-card-subtitle>Password</mat-card-subtitle>
+    <mat-form-field appearance="outline">
+      <mat-label>Input text</mat-label>
+      <input autocomplete="on"
+             matInput
+             [type]="isPasswordHidden ? 'password' : 'text'"
+             formControlName="password">
+      @if (loginForm.get('password')?.invalid) {<mat-error>Password is required.</mat-error>}
+      <button type="button"
+              mat-icon-button
+              matSuffix
+              (click)="isPasswordHidden = !isPasswordHidden"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="isPasswordHidden"
+              style="background: none; border: none;">
+        <mat-icon>{{isPasswordHidden ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button class="login-btn"
+            mat-raised-button
+            color="primary"
+            type="submit">login</button>
+  </mat-card>
+</form>
+}
+@else {
+  <div class="spinner-wrapper">
+    <mat-spinner></mat-spinner>
+  </div>
+}

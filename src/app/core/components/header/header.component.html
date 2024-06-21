@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>My ToDo Application</span>
+  <span style="flex: 1 1 auto;"></span>
+  @if (userStore.username()) {
+  <p style="margin-right: 5px;">{{userStore.username().split('@')[0]}}</p>
+  <button mat-stroked-button
+          (click)="userStore.logout()">
+    <mat-icon style="color: white;">logout</mat-icon>Logout
+  </button>
+  }
+</mat-toolbar>

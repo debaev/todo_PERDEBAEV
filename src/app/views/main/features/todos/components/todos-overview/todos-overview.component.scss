@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  margin-top: 10px;
+
+  & .mdc-fab:not(.mdc-fab--extended) {
+    display: block;
+    margin: 5px auto;
+    background: #007298 !important;
+  }
+
+  & .mat-mdc-list-item {
+    display: block;
+    padding: 15px;
+  }
+}
+
+.spinner-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

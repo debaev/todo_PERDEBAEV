@@ -1,0 +1,29 @@
+@if (!loading) {
+<button mat-flat-button
+        color="warn"
+        (click)="location.back()"
+        style="display: block; margin: 20px 20px 20px auto;">
+  <mat-icon>undo</mat-icon>back
+</button>
+
+<div class="card">
+  @if (todo) {
+
+  <h4>Info</h4>
+  <p>id: <b>{{todo.id}}</b></p>
+  <p>completed: <b>{{todo.completed}}</b></p>
+  <p>created_at: <b>{{todo.created_at | date:'dd.MM.YYYY H:mm:ss'}}</b></p>
+  <p>updated_at: <b>{{todo.updated_at | date:'dd.MM.YYYY H:mm:ss'}}</b></p>
+  <p>title: <b>{{todo.title}}</b></p>
+  <p>user number: <b>{{todo.user}}</b></p>
+  }
+  @else {
+  <p><b>no data</b></p>
+  }
+</div>
+}
+@else {
+<div class="spinner-wrapper">
+  <mat-spinner></mat-spinner>
+</div>
+}
